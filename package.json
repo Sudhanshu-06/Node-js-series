@@ -1,0 +1,16 @@
+{
+  "name": "node-tutorial",
+  "version": "1.0.0",
+  "description": "its a nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sudhanshu Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.0.2"
+  }
+}
