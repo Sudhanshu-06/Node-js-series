@@ -32,9 +32,9 @@ app.post('/person',async(req,res) => {
 
   try{
     const data = req.body
-    //Create a new Person document using the Mongoose model
+    // Create a new Person document using the Mongoose model
     const newPerson = new Person(data);
-    //Save the new person to the database
+    // Save the new person to the database
     const response = await newPerson.save();
     console.log('data saved');
     res.status(200).json(response);
@@ -50,37 +50,36 @@ app.post('/person',async(req,res) => {
 // GET method to get the person
 app.get('/person',async(req,res) =>{
   try{
-    const response = await Person.find();
+    const data = await Person.find();
     console.log('data fetched');
-    res.status(200).json(response);
+    res.status(200).json(data);
 
   }catch(err){
-    console.log('data saved');
+    console.log(err);
     res.status(200).json({error:'Internal server Error'});
 
   }
-})
+});
 
-//Post Method to add a Menu Item
-app.post('/menu',async(req,res)=>{
+app.post('/MenuItem',async(req,res) => {
+
   try{
     const data = req.body
     const newMenu = new MenuItem(data);
     const response = await newMenu.save();
     console.log('data saved');
-    res.status(200).json(response);
-
+    res.status(200).json(data);
   }
   catch(err){
     console.log(err);
-    res.status(500).json({error:'Internal Server Error'});
+    res.status(500).json({error:'Internal Server Error'})
   }
-})
 
-//GET method to get the Menu Items
-app.get('/menu',async(req,res) =>{
+  
+})
+app.get('/MenuItem',async(req,res) =>{
   try{
-    const response = await MenuItem.find();
+    const data = await MenuItem.find();
     console.log('data fetched');
     res.status(200).json(data);
 
@@ -90,7 +89,6 @@ app.get('/menu',async(req,res) =>{
 
   }
 })
-
 
 app.listen(3000,()=>{
     console.log('listening port is 3000')

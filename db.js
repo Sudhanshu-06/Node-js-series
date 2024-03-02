@@ -1,22 +1,23 @@
-const mongoose = require('mongoose');
+const { default: mongoose } = require("mongoose");
+const Mongoose = require("mongoose");
 
-// Define the MongoDB connection url
-const mongoURL='mongodb://localhost:27017/hotels'
+const mongoURL = 'mongodb://localhost:27017/hotels'
+
 mongoose.connect(mongoURL,{
-    useNewUrlParser: true,
-    useUnifiedTopology:true
+    useNewUrlParser:true,
+    UseUnifiedTopology:true
 })
 
 const db = mongoose.connection;
 
 db.on('connected',() =>{
-    console.log('Connected  to MongoDB Server');
+    console.log('Connected to Mongodb Server');
 });
-db.on('error',(err) =>{
-    console.log('Mongodb connection error:',err);
+db.on('error', (err) =>{
+    console.error("connection error;", error);
 });
 db.on('disconnected',() =>{
-    console.log(' MongoDB disconnected');
+    console.log('Mongodb disconnected');
 });
 
 module.exports = db;
